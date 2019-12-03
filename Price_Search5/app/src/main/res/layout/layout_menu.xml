@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="240dp"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="30dp"
+            style="@style/MenuTabText"
+            android:text="历史记录"
+            android:textSize="30dp"
+            android:textColor="#000000"
+            />
+        <Button
+            android:id="@+id/bt_search2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="分期免息Apple/苹果 iPhone XR 苹果xr iphonexr手机 8x xs max"
+            android:layout_marginTop="50dp"
+            />
+    </LinearLayout>
+</ScrollView>

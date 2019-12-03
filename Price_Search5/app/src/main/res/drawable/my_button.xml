@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--<item android:drawable="@drawable/clr_normal" android:state_pressed="true" />-->
+    <item android:state_pressed="false">
+        <shape android:shape="rectangle">
+            <!-- 填充颜色 -->
+            <solid android:color="#0D0F7BFF" />
+            <!-- 设置四个角为弧形,指定弧形半径 -->
+            <corners android:radius="8dip" />
+            <!-- 设置按钮边框与文字之间间隔  -->
+            <padding
+                android:bottom="5dp"
+                android:left="5dp"
+                android:right="5dp"
+                android:top="5dp"
+                />
+
+        </shape>
+    </item>
+
+    <item android:state_pressed="true">
+        <shape android:shape="rectangle">
+            <!-- 填充颜色 -->
+            <solid android:color="#03A9F4" />
+            <!-- 设置四个角为弧形,指定弧形半径 -->
+            <corners android:radius="8dip" />
+            <!-- 设置按钮边框与文字之间间隔  -->
+            <padding
+                android:bottom="5dp"
+                android:left="5dp"
+                android:right="5dp"
+                android:top="5dp"
+                />
+            <corners
+                android:radius="5dp"/>
+            <stroke android:width="4px"
+                android:color="#0D0F7FFF"/>
+        </shape>
+    </item>
+</selector>
