@@ -8,8 +8,27 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="cn.itcast.price_search5.PictureActivity">
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:textColor="#000000"
+        android:textSize="30dp"
+        android:layout_marginTop="20dp"
+        />
+    <TextView
+        android:id="@+id/tv_price"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/tv_title"
+        android:textSize="18sp"
+        android:layout_marginTop="5dp"
+        />
     <ImageView
+        android:id="@+id/img_receive"
+        android:layout_below="@+id/tv_price"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/img_receive"/>
+        />
+
 </RelativeLayout>

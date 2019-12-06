@@ -60,9 +60,9 @@
         <TextView
             android:layout_height="wrap_content"
             android:textColor="#DCDCDC"
-            android:textSize="15sp"
+            android:textSize="13sp"
             android:gravity="left|fill_horizontal"
-            android:text="         有时查询会比较慢，请耐心等待"
+            android:text="    正在加载历史价格图..如长时间还未显示，请确认链接是否正确"
             android:id="@+id/textView3"
             android:layout_width="match_parent"
             android:layout_centerHorizontal="true"
