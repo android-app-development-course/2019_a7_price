@@ -1,1 +1,23 @@
-查询商品历史价格,辨别真假促销
+【功能】查询商品历史价格,辨别真假促销
+【经验】：
+（1）在python服务器用了一种不恰当的方式传输照片，导致android客户端生成的bitmap一直是空的
+with open(file_path,"rb")as f:
+                res=base64.b64encode(f.read())
+ 【解决】：
+ （1）逐行读取发送，缺点是发送很慢，优点就是啥都可以发
+                 with open(file_path,"rb")as f:
+                    for line in f:
+                        sum=len(line)+sum
+                        if(sum>1024)
+                            time.sleep(0.1)
+                            sum=sum-1024
+                        client_socket.sendall(line)
+（2）每次发送1024字节，缺点就是文件太大传输会报错，尝试了80k的文件都不行，但目前比较合适
+              fp=open(file_path,"rb")
+              while True:
+                data=fp.read(1024)
+                if not data:
+                  print("send all")
+                  break
+                client_socket.send(data)
+              
