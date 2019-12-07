@@ -4,7 +4,7 @@
 with open(file_path,"rb")as f:
                 res=base64.b64encode(f.read())
  【解决】：
- （1）逐行读取发送，缺点是发送很慢，优点就是啥都可以发
+ 1、逐行读取发送，缺点是发送很慢，优点就是啥都可以发
                  with open(file_path,"rb")as f:
                     for line in f:
                         sum=len(line)+sum
@@ -12,7 +12,7 @@ with open(file_path,"rb")as f:
                             time.sleep(0.1)
                             sum=sum-1024
                         client_socket.sendall(line)
-（2）每次发送1024字节，缺点就是文件太大传输会报错，尝试了80k的文件都不行，但目前比较合适
+2、每次发送1024字节，缺点就是文件太大传输会报错，尝试了80k的文件都不行，但目前比较合适
               fp=open(file_path,"rb")
               while True:
                 data=fp.read(1024)
@@ -21,3 +21,22 @@ with open(file_path,"rb")as f:
                   break
                 client_socket.send(data)
               
+（2）scrollerview嵌套listview会导致只能显示一条信息，二者选其一就好，都能实现滚动显示数据库内容的功能
+（3）实现长按删除功能时，总想着通过listview的id对应到数据库的id，但总是无法一一对应，导致无法成功在数据库中 实现删除
+    最后是通过长按item获得其对应的id，再通过commodityList获得其title，最后通过title对应来删除数据库中的数据
+    
+                AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo)item.getMenuInfo();
+                int pos = (int)(info.id);//这里的info.id对应的就是数据库中_id的值
+                //int pos=(int)listView.getAdapter().getItemId(menuInfo.position);
+                String delete_str=commodityList.get(pos).getTitle();
+                if(commodityList.remove(pos)!=null){//这行代码必须有
+                    SQLiteDatabase db = dbHelper.getWritableDatabase();
+                    //不知名原因，id总是对不好，所以改成title删除
+                    //一开始想着获取listview的text，一直没找到方法，看到这里突然想到通过数据就能获得title，省事多了
+/*                    String st=Integer.toString(commodityList.size()-pos);
+                    String s="delete from Commodity10 where _id = '"+st+"'"+";";
+                    db.execSQL(s);*/
+                    String whereClause = "title=?";
+                    String[] whereArgs = {delete_str};
+                    db.delete("Commodity10",whereClause,whereArgs);
+                    db.close();
